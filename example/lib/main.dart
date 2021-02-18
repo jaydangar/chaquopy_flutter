@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:chaquopy/chaquopy.dart';
 import 'package:flutter/services.dart';
