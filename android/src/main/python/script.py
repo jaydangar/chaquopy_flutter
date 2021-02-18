@@ -1,2 +1,4 @@
 def main(code):
-    exec(code)
+    env = {}
+    exec(code, env, env)
+    
