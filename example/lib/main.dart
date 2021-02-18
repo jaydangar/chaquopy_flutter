@@ -91,12 +91,11 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 3,
                 child: TextFormField(
-                  keyboardType: TextInputType.streetAddress,
+                  keyboardType: TextInputType.multiline,
                   focusNode: _focusNode,
                   controller: _controller,
-                  expands: true,
-                  minLines: null,
-                  maxLines: null,
+                  minLines: 10,
+                  maxLines: 20,
                 ),
               ),
               Expanded(
