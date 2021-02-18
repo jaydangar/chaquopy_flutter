@@ -78,22 +78,6 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // to run PythonCode, just use executeCode function, which will return map with following format
-  // {
-  // "textOutput" : output of the code,
-  // "error" : error generated while running the code
-  // }
-  Future<void> runPythonCode(String pythonCode) async {
-    Map<String, dynamic> _result = Map<String, dynamic>();
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    _result = await Chaquopy.executeCode('print("Hello")');
-
-    setState(() {
-      _output = _result['textOutput'].toString();
-      _error = _result['error'].toString();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -158,7 +142,19 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           'run Code',
                         ),
-                        onPressed: () => runPythonCode(_controller.text),
+                        onPressed: () async {
+                          // to run PythonCode, just use executeCode function, which will return map with following format
+                          // {
+                          // "textOutput" : output of the code,
+                          // "error" : error generated while running the code
+                          // }
+                          final _result =
+                              await Chaquopy.executeCode(_controller.text);
+                          setState(() {
+                            _output = _result['textOutput'];
+                            _error = _result['error'];
+                          });
+                        },
                       ),
                     ),
                   ),
