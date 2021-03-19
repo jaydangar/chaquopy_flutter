@@ -113,17 +113,17 @@ defaultConfig {
 
 6. Future Plans : 
    
-   [ ] Add support for opencv and matplotlib
+    [ ] Add support for opencv and matplotlib
 
-   [ ] Add support for NLTK and Spacy
-   
-   [ ] Add support for apple devices as well. If you want to help me out with it, kindly [contact]('jayjaydangar96@gmail.com') me,through mail, and I will be happy make this plugin better.
+    [ ] Add support for NLTK and Spacy
+
+    [ ] Add support for apple devices as well. If you want to help me out with it, kindly [contact]('jayjaydangar96@gmail.com') me,through mail, and I will be happy make this plugin better.
 
 
 ##  Demo : 
     
-    ![](https://imgur.com/a/UY8e3nM)
+    ![](https://github.com/codemaker2015/React-native-map-view/blob/master/demo/demo.gif)
     
 ##  Queries : 
 
-    All the configurations of chaquopy will work the same way, it's mentioned on the [chaquopy sdk](https://chaquo.com/chaquopy/doc/current/android.html) home page. if you don't find any solution you can open issue in the repository and I am happy to help. :) 
+All the configurations of chaquopy will work the same way, it's mentioned on the [chaquopy sdk](https://chaquo.com/chaquopy/doc/current/android.html) home page. if you don't find any solution you can open issue in the repository and I am happy to help. :) 

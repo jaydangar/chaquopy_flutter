@@ -1,3 +1,7 @@
 ## 0.0.1
 
-* Plugin created with documentation in place.
+* Raw Plugin created without any documentation.
+
+## 0.0.2 
+
+* Added Documentation with all the details regarding plugin and demo.
