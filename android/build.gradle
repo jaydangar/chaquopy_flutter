@@ -35,6 +35,11 @@ android {
     }
 
     defaultConfig {
+        python {
+            pip {
+                install "numpy"
+            }
+        }
         minSdkVersion 16
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
