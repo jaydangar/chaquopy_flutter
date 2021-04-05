@@ -25,12 +25,10 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
         channel.setMethodCallHandler(this)
     }
 
-    //  * This will run python code consisting of graph,error,result output...
-    fun _runPythonCode(code: String): Map<String, Any?> {
+    //  * This will run python code consisting of error and result output...
+    fun _runPythonTextCode(code: String): Map<String, Any?> {
         val _returnOutput: MutableMap<String, Any?> = HashMap()
-
         val _python: Python = Python.getInstance()
-
         val _console: PyObject = _python.getModule("script")
         val _sys: PyObject = _python.getModule("sys")
         val _io: PyObject = _python.getModule("io")
@@ -38,12 +36,10 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
         return try {
             val _textOutputStream: PyObject = _io.callAttr("StringIO")
             _sys["stdout"] = _textOutputStream
-            _console.callAttrThrows("main", code)
+            _console.callAttrThrows("mainTextCode", code)
             _returnOutput["textOutput"] = _textOutputStream.callAttr("getvalue").toString()
-            //  _returnOutput["graphOutput"] = _imgOutputStream.toJava(ByteArray::class.java)
             _returnOutput
         } catch (e: PyException) {
-            print(e.message.toString())
             _returnOutput["error"] = e.message.toString()
             _returnOutput
         }
@@ -53,12 +49,11 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
         if (call.method == "runPythonScript") {
             try {
                 val code: String = call.arguments()
-                val _result: Map<String, Any?> = _runPythonCode(code)
+                val _result: Map<String, Any?> = _runPythonTextCode(code)
                 result.success(_result)
             } catch (e: Exception) {
                 val _result: MutableMap<String, Any?> = HashMap()
                 _result["error"] = e.message.toString()
-                print(e.message.toString())
                 result.success(_result)
             }
         }

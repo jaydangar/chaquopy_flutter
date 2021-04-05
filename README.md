@@ -4,7 +4,7 @@ This is a chaquopy plugin to run python code on android. This is the simplest ve
 
 ## Configuration Steps : 
 
-Add  `maven { url "https://chaquo.com/maven" }` to your project level `gradle.build` like following :
+Add  `maven { url "https://chaquo.com/maven" }` and add chaquopy dependency in dependencies section at project level `gradle.build` like following :
 
 ```
 buildscript {
@@ -13,8 +13,23 @@ buildscript {
         jcenter()
         maven { url "https://chaquo.com/maven" }
     }
+    dependencies {
+        ...
+        classpath "com.chaquo.python:gradle:9.1.0"
+    }
 }
 ```
+
+Then, in the module-level build.gradle file (usually in the app directory), apply the Chaquopy plugin at the top of the file, but after the Android plugin:
+
+```
+apply plugin: 'com.android.application' 
+apply plugin: 'com.chaquo.python' 
+```
+
+After this sync your project.
+
+Now, in your android folder, you'll have additional python folder created. Now, Download [script.py](https://drive.google.com/file/d/1D4Hjt66f0MXkaeAQ8WLX3DEebX3BrFvM/view?usp=sharing) and put it in python directory. (Kindly note that this python file should not be renamed other than script.py and also if your code doesn't work, check the intendations of the downloaded file.)
 
 Now in order to use the chaquopy plugin import the chaquopy package in your flutter app through declaring the package inside pubspec.yaml file.
 
@@ -38,7 +53,7 @@ you can easily access this code via `result['textOutput']` and `result['error']`
     This plugin uses [Chaquopy SDK](https://chaquo.com/chaquopy/), which uses a license for the unlimited use case. In order to remove the notification and timelimit, you need to contact [here](https://chaquo.com/chaquopy/paid-license/) for the license and after you get your license, you need to follow add follwing two lines in your `local.properties` file.
 
     1. chaquopy.license=`your_license_key`
-    2. chaquopy.applicationId=`your.application.id`
+    2. chaquopy.applicationId=`package name of the app`
 
 2. Can I use python packages?
 

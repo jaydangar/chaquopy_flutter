@@ -1,24 +1,14 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:chaquopy/chaquopy.dart';
+
+import '../lib/chaquopy.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('chaquopy');
-
   TestWidgetsFlutterBinding.ensureInitialized();
+  MethodChannel channel = const MethodChannel('chaquopy');
 
-  setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
-  });
+  channel.setMockMethodCallHandler(null);
 
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
-  });
-
-  test('executeCode', () async {
-    expect(await Chaquopy.executeCode('print("Hello")'),
-        {"textOutput":"Hello","error":""});
-  });
+  expect(Chaquopy.executeCode('print("Hello")'),
+      {"textOutput": "Hello", "error": ""});
 }
