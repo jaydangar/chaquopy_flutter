@@ -1,6 +1,6 @@
 name: chaquopy
 description: Chaquopy plugin which uses chaquopy sdk to run the python script on flutter apps.
-version: 0.0.5
+version: 0.0.7
 homepage: https://github.com/jaydangar/chaquopy_flutter
 
 environment:

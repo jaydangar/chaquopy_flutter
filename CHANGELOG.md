@@ -19,3 +19,11 @@
 * Added pypi support
 * Python code will run on a separate thread 
 * Added timeout support, default to 15 seconds
+
+##  0.0.6
+
+* Demo link changed
+
+##  0.0.7
+
+* formatted dart code

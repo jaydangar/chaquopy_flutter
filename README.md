@@ -137,7 +137,7 @@ defaultConfig {
 
 ##  Demo : 
     
-    ![](https://github.com/jaydangar/chaquopy_flutter/blob/master/demo/ezgif.com-video-to-gif.gif)
+    ![](https://imgur.com/nou34k0)
     
 ##  Queries : 
 
