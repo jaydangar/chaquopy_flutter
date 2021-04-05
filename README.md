@@ -137,7 +137,7 @@ defaultConfig {
 
 ##  Demo : 
     
-    ![](https://github.com/codemaker2015/React-native-map-view/blob/master/demo/demo.gif)
+    ![](https://github.com/jaydangar/chaquopy_flutter/blob/master/demo/ezgif.com-video-to-gif.gif)
     
 ##  Queries : 
 
