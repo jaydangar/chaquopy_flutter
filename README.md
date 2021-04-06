@@ -137,7 +137,7 @@ defaultConfig {
 
 ##  Demo : 
     
-    ![](https://imgur.com/nou34k0)
+    ![](demo.gif)
     
 ##  Queries : 
 
