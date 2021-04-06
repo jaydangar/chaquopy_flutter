@@ -137,7 +137,7 @@ defaultConfig {
 
 ##  Demo : 
     
-    ![](https://github.com/jaydangar/chaquopy_flutter/blob/master/demo.gif)
+    ![](https://user-images.githubusercontent.com/10520025/113665705-94912600-96cb-11eb-8ebd-3732058e52d0.gif)
     
 ##  Queries : 
 
