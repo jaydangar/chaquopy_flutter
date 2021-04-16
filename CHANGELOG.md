@@ -27,3 +27,7 @@
 ##  0.0.7
 
 * formatted dart code
+
+##  0.0.8
+
+* updated demo file
