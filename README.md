@@ -49,12 +49,11 @@ The map returned contains two properties and it contains follwing structure:
 
 ```
 {
-    "textOutput" : "code output",
-    "error" : "code error",
+    "textOutputOrError" : "code output or error",
 }
 ```
 
-you can easily access this code via `result['textOutput']` and `result['error']`, where result is variable of type map and you can name it anything you want.
+you can easily access this code via `result["textOutputOrError"]` , where result is variable of type map and you can name it anything you want.
 
 ## FAQs:
 

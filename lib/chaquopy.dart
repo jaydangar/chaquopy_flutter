@@ -8,8 +8,7 @@ class Chaquopy {
 
   /// This function execute your python code and returns result Map.
   /// Structure of result map is :
-  /// result['textOutput'] : The original output.
-  /// result['error'] : Error or Exception thrown while running the code.
+  /// result['textOutput'] : The original output / error 
   static Future<Map<String, dynamic>> executeCode(String code) async {
     dynamic outputData = await _channel.invokeMethod('runPythonScript', code);
     return Map<String, dynamic>.from(outputData);

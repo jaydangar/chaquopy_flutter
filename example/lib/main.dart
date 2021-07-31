@@ -32,10 +32,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _controller;
-  FocusNode _focusNode;
+  late TextEditingController _controller;
+  late FocusNode _focusNode;
 
-  String _output = "", _error = "";
+  String _outputOrError = "", _error = "";
 
   Map<String, dynamic> data = Map();
   bool loadImageVisibility = true;
@@ -101,15 +101,7 @@ class _HomePageState extends State<HomePage> {
                 flex: 2,
                 child: Container(
                   child: Text(
-                    'This is the output code : $_output',
-                  ),
-                ),
-              ),
-              Expanded(
-                flex: 1,
-                child: Container(
-                  child: Text(
-                    'This is the error generated : $_error',
+                    'This shows Output Or Error : $_outputOrError',
                   ),
                 ),
               ),
@@ -143,14 +135,12 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () async {
                           // to run PythonCode, just use executeCode function, which will return map with following format
                           // {
-                          // "textOutput" : output of the code,
-                          // "error" : error generated while running the code
+                          // "textOutputOrError" : output of the code / error generated while running the code
                           // }
                           final _result =
                               await Chaquopy.executeCode(_controller.text);
                           setState(() {
-                            _output = _result['textOutput'];
-                            _error = _result['error'];
+                            _outputOrError = _result['textOutputOrError'] ?? '';
                           });
                         },
                       ),

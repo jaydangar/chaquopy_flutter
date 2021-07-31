@@ -37,10 +37,10 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             val _textOutputStream: PyObject = _io.callAttr("StringIO")
             _sys["stdout"] = _textOutputStream
             _console.callAttrThrows("mainTextCode", code)
-            _returnOutput["textOutput"] = _textOutputStream.callAttr("getvalue").toString()
+            _returnOutput["textOutputOrError"] = _textOutputStream.callAttr("getvalue").toString()
             _returnOutput
         } catch (e: PyException) {
-            _returnOutput["error"] = e.message.toString()
+            _returnOutput["textOutputOrError"] = e.message.toString()
             _returnOutput
         }
     }
@@ -53,7 +53,7 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
                 result.success(_result)
             } catch (e: Exception) {
                 val _result: MutableMap<String, Any?> = HashMap()
-                _result["error"] = e.message.toString()
+                _result["textOutputOrError"] = e.message.toString()
                 result.success(_result)
             }
         }
