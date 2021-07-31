@@ -36,3 +36,11 @@
 
 * added null safety
 * merged output and error 
+
+##  0.0.10
+
+* added ios folder
+
+##  0.0.11
+
+* formatted the code
