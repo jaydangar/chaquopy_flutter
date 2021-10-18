@@ -5,6 +5,7 @@ This is a chaquopy plugin to run python code on android. This is the simplest ve
 ## Configuration Steps : 
 
 Add  `maven { url "https://chaquo.com/maven" }` and add chaquopy dependency in dependencies section at project level `gradle.build` like following :
+You can find the latest-version of `chaquopy` [here](https://chaquo.com/chaquopy/):
 
 ```
 buildscript {
@@ -15,7 +16,7 @@ buildscript {
     }
     dependencies {
         ...
-        classpath "com.chaquo.python:gradle:9.1.0"
+        classpath "com.chaquo.python:gradle:latest-version"
     }
 }
 ```

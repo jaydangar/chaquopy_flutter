@@ -44,3 +44,7 @@
 ##  0.0.11
 
 * formatted the code
+
+##  0.0.12
+
+* updated readme.md
