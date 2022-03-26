@@ -136,7 +136,10 @@ defaultConfig {
 }
 ```
 
-6. Future Plans : 
+6. add this line to application tag in manifest file 
+`android:name="com.chaquo.python.android.PyApplication"`.
+
+7. Future Plans : 
    
     [ ] Add support for opencv and matplotlib
 
