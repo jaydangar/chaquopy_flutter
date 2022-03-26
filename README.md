@@ -38,6 +38,11 @@ defaultConfig {
 }
 ```
 
+add this line to application tag in manifest file 
+```
+android:name="com.chaquo.python.android.PyApplication".
+```
+
 After that sync your project.
 
 Now, in your android folder, you'll have additional python folder created. Now, Download [script.py](https://drive.google.com/file/d/1D4Hjt66f0MXkaeAQ8WLX3DEebX3BrFvM/view?usp=sharing) and put it in python directory. (Kindly note that this python file should not be renamed other than script.py and also if your code doesn't work, check the intendations of the downloaded file.)
@@ -136,10 +141,7 @@ defaultConfig {
 }
 ```
 
-6. add this line to application tag in manifest file 
-`android:name="com.chaquo.python.android.PyApplication"`.
-
-7. Future Plans : 
+6. Future Plans : 
    
     [ ] Add support for opencv and matplotlib
 
