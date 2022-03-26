@@ -52,3 +52,7 @@
 ##  0.0.13
 
 * added configuration step in manifest file.
+
+##  0.0.14
+
+* added configuration step in manifest file.
