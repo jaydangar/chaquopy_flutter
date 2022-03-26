@@ -48,3 +48,7 @@
 ##  0.0.12
 
 * updated readme.md
+
+##  0.0.13
+
+* added configuration step in manifest file.
