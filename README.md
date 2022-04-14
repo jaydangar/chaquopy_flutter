@@ -1,6 +1,6 @@
-## Chaquopy
+## Chaquopy Flutter plugin
 
-This is a chaquopy plugin to run python code on android. This is the simplest version, where you can write you code and run it.
+This is an unofficial Chaquopy Flutter plugin to run Python code on Android. This is the simplest version, where you can write your code and run it.
 
 ## Configuration Steps : 
 
