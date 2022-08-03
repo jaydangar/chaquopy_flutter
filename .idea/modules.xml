@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/chaquopy.iml" filepath="$PROJECT_DIR$/chaquopy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/android/chaquopy_example_android.iml" filepath="$PROJECT_DIR$/example/android/chaquopy_example_android.iml" />
     </modules>
   </component>
 </project>

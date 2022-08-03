@@ -60,3 +60,7 @@
 ##  0.0.15
 
 * Updated readme.md file
+
+## 0.0.16
+
+* updated kotlin and gradle version

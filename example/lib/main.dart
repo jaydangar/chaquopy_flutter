@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:chaquopy/chaquopy.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   late TextEditingController _controller;
   late FocusNode _focusNode;
 
-  String _outputOrError = "", _error = "";
+  String _outputOrError = "";
 
   Map<String, dynamic> data = Map();
   bool loadImageVisibility = true;
