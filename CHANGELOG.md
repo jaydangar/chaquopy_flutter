@@ -64,3 +64,7 @@
 ## 0.0.16
 
 * updated kotlin and gradle version
+
+## 0.0.17
+
+* Type mismatch bug Fixed : Thanks davidyuk[https://github.com/davidyuk] for pointing this out
