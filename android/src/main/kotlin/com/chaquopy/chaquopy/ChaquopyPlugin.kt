@@ -48,7 +48,7 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
         if (call.method == "runPythonScript") {
             try {
-                String = call.arguments() ?: ""
+                val code: String = call.arguments() ?: ""
                 val _result: Map<String, Any?> = _runPythonTextCode(code)
                 result.success(_result)
             } catch (e: Exception) {
