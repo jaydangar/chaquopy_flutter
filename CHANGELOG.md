@@ -67,7 +67,7 @@
 
 ## 0.0.17
 
-* Type mismatch bug Fixed : Thanks davidyuk[https://github.com/davidyuk] for pointing this out
+* Type mismatch bug Fixed : Thanks [davidyuk](https://github.com/davidyuk) for pointing this out
 
 ## 0.0.18
 
