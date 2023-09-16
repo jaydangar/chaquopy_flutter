@@ -41,7 +41,6 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             _returnOutput["returnValueJson"] = returnValue.toString()
         } catch (e: PyException) {
             _returnOutput["error"] = e.message.toString()
-            _returnOutput["errorType"] = e.type.toString()
             _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
         }
         return _returnOutput
@@ -55,7 +54,6 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
                 if (_result.containsKey("error")) {
                     val errorDetails: MutableMap<String, Any?> = HashMap()
                     errorDetails["error"] = _result["error"]
-                    errorDetails["errorType"] = _result["errorType"]
                     errorDetails["traceback"] = _result["traceback"]
                     result.success(errorDetails)
                 } else {
@@ -67,7 +65,6 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             } catch (e: Exception) {
                 val errorDetails: MutableMap<String, Any?> = HashMap()
                 errorDetails["error"] = e.message.toString()
-                errorDetails["errorType"] = e::class.java.simpleName
                 errorDetails["traceback"] = e.stackTrace.joinToString("\n")
                 result.success(errorDetails)
             }
