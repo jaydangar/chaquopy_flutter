@@ -33,16 +33,18 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
         val _sys: PyObject = _python.getModule("sys")
         val _io: PyObject = _python.getModule("io")
 
-        return try {
+        try {
             val _textOutputStream: PyObject = _io.callAttr("StringIO")
             _sys["stdout"] = _textOutputStream
-            _console.callAttrThrows("mainTextCode", code)
-            _returnOutput["textOutputOrError"] = _textOutputStream.callAttr("getvalue").toString()
-            _returnOutput
+            val returnValue: PyObject = _console.callAttrThrows("mainTextCode", code)
+            _returnOutput["output"] = _textOutputStream.callAttr("getvalue").toString()
+            _returnOutput["returnValueJson"] = returnValue.toString()
         } catch (e: PyException) {
-            _returnOutput["textOutputOrError"] = e.message.toString()
-            _returnOutput
+            _returnOutput["error"] = e.message.toString()
+            _returnOutput["errorType"] = e.type.toString()
+            _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
         }
+        return _returnOutput
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -50,11 +52,24 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             try {
                 val code: String = call.arguments() ?: ""
                 val _result: Map<String, Any?> = _runPythonTextCode(code)
-                result.success(_result)
+                if (_result.containsKey("error")) {
+                    val errorDetails: MutableMap<String, Any?> = HashMap()
+                    errorDetails["error"] = _result["error"]
+                    errorDetails["errorType"] = _result["errorType"]
+                    errorDetails["traceback"] = _result["traceback"]
+                    result.success(errorDetails)
+                } else {
+                    val successDetails: MutableMap<String, Any?> = HashMap()
+                    successDetails["output"] = _result["output"]
+                    successDetails["returnValueJson"] = _result["returnValueJson"]
+                    result.success(successDetails)
+                }
             } catch (e: Exception) {
-                val _result: MutableMap<String, Any?> = HashMap()
-                _result["textOutputOrError"] = e.message.toString()
-                result.success(_result)
+                val errorDetails: MutableMap<String, Any?> = HashMap()
+                errorDetails["error"] = e.message.toString()
+                errorDetails["errorType"] = e::class.java.simpleName
+                errorDetails["traceback"] = e.stackTrace.joinToString("\n")
+                result.success(errorDetails)
             }
         }
     }
