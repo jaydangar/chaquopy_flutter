@@ -40,7 +40,9 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             _returnOutput["output"] = _textOutputStream.callAttr("getvalue").toString()
             _returnOutput["returnValueJson"] = returnValue.toString()
         } catch (e: PyException) {
-            _returnOutput["error"] = e.message.toString()
+            val (errorType, errorMessage) = e.message?.split(":", limit = 2) ?: listOf("UnknownError", e.message)
+            _returnOutput["errorType"] = errorType.trim()
+            _returnOutput["errorMessage"] = errorMessage?.trim()
             _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
         }
         return _returnOutput
@@ -53,7 +55,8 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
                 val _result: Map<String, Any?> = _runPythonTextCode(code)
                 if (_result.containsKey("error")) {
                     val errorDetails: MutableMap<String, Any?> = HashMap()
-                    errorDetails["error"] = _result["error"]
+                    errorDetails["errorType"] = _result["errorType"]
+                    errorDetails["errorMessage"] = _result["errorMessage"]
                     errorDetails["traceback"] = _result["traceback"]
                     result.success(errorDetails)
                 } else {
@@ -64,7 +67,8 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
                 }
             } catch (e: Exception) {
                 val errorDetails: MutableMap<String, Any?> = HashMap()
-                errorDetails["error"] = e.message.toString()
+                errorDetails["errorType"] = e::class.java.simpleName
+                errorDetails["errorMessage"] = e.message.toString()
                 errorDetails["traceback"] = e.stackTrace.joinToString("\n")
                 result.success(errorDetails)
             }
