@@ -13,6 +13,7 @@
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/io" />
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/isolate" />
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/js" />
+      <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/js_interop" />
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/js_util" />
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/math" />
       <root url="file://$PROJECT_DIR$/../flutter/bin/cache/dart-sdk/lib/mirrors" />
