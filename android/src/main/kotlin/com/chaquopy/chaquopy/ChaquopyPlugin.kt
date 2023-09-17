@@ -40,7 +40,7 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             _returnOutput["output"] = _textOutputStream.callAttr("getvalue").toString()
             _returnOutput["returnValueJson"] = returnValue.toString()
         } catch (e: PyException) {
-            val (errorType, errorMessage) = e.message?.split(":", limit = 2) ?: listOf("UnknownError", e.message)
+            val (errorType, errorMessage) = e.message?.split(":", limit = 2) ?: listOf("UnknownError", e.message ?: "Unknown Message")
             _returnOutput["errorType"] = errorType.trim()
             _returnOutput["errorMessage"] = errorMessage?.trim()
             _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
