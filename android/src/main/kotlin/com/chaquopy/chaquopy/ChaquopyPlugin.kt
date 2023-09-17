@@ -57,7 +57,7 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             try {
                 val code: String = call.arguments() ?: ""
                 val _result: Map<String, Any?> = _runPythonTextCode(code)
-                if (_result.containsKey("error")) {
+                if (_result.containsKey("errorType")) {
                     val errorDetails: MutableMap<String, Any?> = HashMap()
                     errorDetails["errorType"] = _result["errorType"]
                     errorDetails["errorMessage"] = _result["errorMessage"]
