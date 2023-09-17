@@ -44,10 +44,6 @@ class ChaquopyPlugin : FlutterPlugin, MethodCallHandler {
             _returnOutput["errorType"] = errorType.trim()
             _returnOutput["errorMessage"] = errorMessage?.trim()
             _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
-        } catch (e: Exception) {
-            _returnOutput["errorType"] = e::class.java.simpleName
-            _returnOutput["errorMessage"] = e.message ?: "Unknown Message"
-            _returnOutput["traceback"] = e.stackTrace.joinToString("\n")
         }
         return _returnOutput
     }
