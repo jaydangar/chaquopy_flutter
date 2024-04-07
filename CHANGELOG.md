@@ -72,3 +72,11 @@
 ## 0.0.18
 
 * Bug fixes
+
+## 0.0.19 
+
+* Bug fixes
+
+## 0.0.20 
+
+* Making this plugin compatible for latest chaquopy version

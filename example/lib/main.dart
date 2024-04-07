@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: FlatButton(
+                      child: MaterialButton(
                         color: Colors.green,
                         onPressed: () => addIntendation(),
                         child: Icon(
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: FlatButton(
+                      child: MaterialButton(
                         height: 50,
                         color: Colors.green,
                         child: Text(

@@ -2,7 +2,7 @@ group 'com.chaquopy.chaquopy'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.7.0'
+    ext.kotlin_version = '1.9.20'
     repositories {
         google()
         jcenter()
@@ -10,8 +10,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath "com.chaquo.python:gradle:12.0.0"
+        classpath 'com.android.tools.build:gradle:8.3.1'
+        classpath "com.chaquo.python:gradle:15.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -28,14 +28,24 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.chaquo.python'
 
 android {
-    compileSdkVersion 30
+    compileSdk 34
+    namespace "com.chaquopy.chaquopy"
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }

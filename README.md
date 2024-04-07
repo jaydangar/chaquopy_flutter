@@ -5,7 +5,7 @@ This is an unofficial Chaquopy Flutter plugin to run Python code on Android. Thi
 ## Configuration Steps : 
 
 Add  `maven { url "https://chaquo.com/maven" }` and add chaquopy dependency in dependencies section at project level `gradle.build` like following :
-You can find the latest-version of `chaquopy` [here](https://chaquo.com/chaquopy/):
+You can find the latest-version of `chaquopy` [here](https://chaquo.com/chaquopy/), also make sure to update the gradle, python and minimum SDK versions accordingly. You can find the compatible python, android gradle version and minimum SDK version based on chaquopy version [here](https://chaquo.com/chaquopy/doc/15.0/versions.html):
 
 ```
 buildscript {
@@ -141,7 +141,31 @@ defaultConfig {
 }
 ```
 
-6. Future Plans : 
+6. If you're facing Kotlin and Java compatibility issues, you can provide kotlin/java configuration as following: 
+
+```
+android {
+    compileSdk 34
+    namespace 'com.chaquopy.chaquopy_example'
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+```
+
+7. You might need to update dsitributionUrl for the gradle based on the version you're using, which you can do inside gradle-wrapper.properties. you can find the available gradle urls [here](https://services.gradle.org/distributions/):
+
+```
+distributionUrl=URL
+```
+
+8. Future Plans : 
    
     [ ] Add support for opencv and matplotlib
 
